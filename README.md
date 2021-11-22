@@ -5,7 +5,7 @@
 
 ___ 
 ## Install 
-```pip install duxwrap``` 
+```pip install renderapi``` 
 ___
 
 ### How to use
