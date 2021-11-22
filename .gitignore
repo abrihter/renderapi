@@ -3,5 +3,7 @@ build/
 dist/
 renderapi.egg-info/
 b_test/
+docs/
 
 .bojan_env
+make_documentation.sh
