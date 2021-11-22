@@ -7,3 +7,4 @@ docs/
 
 .bojan_env
 make_documentation.sh
+make_pypi.sh
