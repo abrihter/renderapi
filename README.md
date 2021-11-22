@@ -3,9 +3,9 @@
 ## Documentation
 [render.com API documentation](https://apidocs.preview.render.com/)
 
-___ 
-## Install 
-```pip install renderapi``` 
+___
+## Install
+```pip install renderapi```
 ___
 
 ### How to use
@@ -14,13 +14,19 @@ from renderapi import RenderApi
 
 ra = RenderApi({RENDER_API_KEY})
 
-#get owners
-data = ra.owners.get({ownerId})
+#get custom domains
+data = ra.custom_domains.get({serviceId})
 print(data)
 print(data.json())
 
 #get jobs
 data = ra.jobs.get({serviceId})
 print(data)
-print(data.json()) 
+print(data.json())
+
+#get owners
+data = ra.owners.get({ownerId})
+print(data)
+print(data.json())
+
 ```
