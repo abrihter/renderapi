@@ -38,6 +38,7 @@ class CustomDomains(BaseResource):
         '''create custom domains
 
         :param str serviceId: Service ID
+        :param str domain_name: Domanin name to create
         :return object: Returns requests object
         '''
         path = self.config.API_ENDPOINTS['custom_domains']['root']
