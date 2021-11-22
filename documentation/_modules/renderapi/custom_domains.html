@@ -67,16 +67,19 @@
         <span class="n">path_vars</span> <span class="o">=</span> <span class="p">[</span><span class="n">serviceId</span><span class="p">,</span> <span class="n">customDomainIdOrName</span><span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">path_vars</span><span class="o">=</span><span class="n">path_vars</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="CustomDomains.add"><a class="viewcode-back" href="../../renderapi.html#renderapi.custom_domains.CustomDomains.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serviceId</span><span class="p">):</span>
+<div class="viewcode-block" id="CustomDomains.add"><a class="viewcode-back" href="../../renderapi.html#renderapi.custom_domains.CustomDomains.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serviceId</span><span class="p">,</span> <span class="n">domain_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;create custom domains</span>
 
 <span class="sd">        :param str serviceId: Service ID</span>
+<span class="sd">        :param str domain_name: Domanin name to create</span>
 <span class="sd">        :return object: Returns requests object</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">API_ENDPOINTS</span><span class="p">[</span><span class="s1">&#39;custom_domains&#39;</span><span class="p">][</span><span class="s1">&#39;root&#39;</span><span class="p">]</span>
         <span class="n">path_vars</span> <span class="o">=</span> <span class="p">[</span><span class="n">serviceId</span><span class="p">]</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">domain_name</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span>
             <span class="s1">&#39;post&#39;</span><span class="p">,</span>
             <span class="n">path</span><span class="p">,</span>
             <span class="n">path_vars</span><span class="o">=</span><span class="n">path_vars</span><span class="p">,</span>
