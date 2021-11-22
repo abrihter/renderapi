@@ -8,7 +8,7 @@ with open('README.md', 'r',) as f:
 setuptools.setup(
     name = 'renderapi',
     packages = ['renderapi'],
-    version = '0.9',
+    version = '1.00',
     description = 'render.com API wrapper',
     long_description_content_type="text/markdown",
     long_description=readme,
@@ -16,7 +16,7 @@ setuptools.setup(
     author_email = '',
     license='MIT',
     url = 'https://github.com/abrihter/renderapi/releases',
-    download_url = 'https://github.com/abrihter/renderapi/archive/v_09.tar.gz',
+    download_url = 'https://github.com/abrihter/renderapi/archive/v_100.tar.gz',
     keywords = ['RENDER.COM', 'API', 'WRAPPER'],
     install_requires=[
         'requests',
