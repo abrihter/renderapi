@@ -4,7 +4,7 @@ custom requests
 
 import requests
 import logging
-from renderapi.renderapi.config import Config
+from renderapi.config import Config
 
 class Request:
     '''request class'''

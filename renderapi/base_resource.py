@@ -4,8 +4,8 @@ base resource
 
 import logging
 
-from renderapi.renderapi.custom_requests import Request
-from renderapi.renderapi.config import Config
+from renderapi.custom_requests import Request
+from renderapi.config import Config
 
 class BaseResource:
     '''base resource'''

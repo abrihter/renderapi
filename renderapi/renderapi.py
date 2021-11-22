@@ -10,10 +10,10 @@ __status__ = "Production"
 
 import logging
 
-from renderapi.renderapi.exceptions import InvalidKeyException
-from renderapi.renderapi.owners import Owners
-from renderapi.renderapi.custom_domains import CustomDomains
-from renderapi.renderapi.jobs import Jobs
+from renderapi.exceptions import InvalidKeyException
+from renderapi.owners import Owners
+from renderapi.custom_domains import CustomDomains
+from renderapi.jobs import Jobs
 
 class RenderApi:
     '''render API main class'''

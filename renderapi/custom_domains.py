@@ -4,7 +4,7 @@ custom domains resource
 
 import logging
 
-from renderapi.renderapi.base_resource import BaseResource
+from renderapi.base_resource import BaseResource
 
 class CustomDomains(BaseResource):
     '''custom domains resource'''

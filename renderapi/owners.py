@@ -4,7 +4,7 @@ owners resource
 
 import logging
 
-from renderapi.renderapi.base_resource import BaseResource
+from renderapi.base_resource import BaseResource
 
 class Owners(BaseResource):
     '''owners resource'''
