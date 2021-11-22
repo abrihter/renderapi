@@ -10,7 +10,12 @@ class CustomDomains(BaseResource):
     '''custom domains resource'''
 
     def get(self, serviceId, customDomainIdOrName=None):
-        '''get custom domains data'''
+        '''get custom domains data
+
+        :param str serviceId: Service ID
+        :param str customDomainIdOrName: Domain ID or name
+        :return object: Returns requests object
+        '''
         path_vars = [serviceId]
         path = self.config.API_ENDPOINTS['custom_domains']['root']
         if customDomainIdOrName:
@@ -19,13 +24,22 @@ class CustomDomains(BaseResource):
         return self.make_request('get', path, path_vars=path_vars)
 
     def get_domain(self, serviceId, customDomainIdOrName):
-        '''get particular custom domain data'''
+        '''get particular custom domain data
+
+        :param str serviceId: Service ID
+        :param str customDomainIdOrName: Domain ID or name
+        :return object: Returns requests object
+        '''
         path = self.config.API_ENDPOINTS['custom_domains']['name']
         path_vars = [serviceId, customDomainIdOrName]
         return self.make_request('get', path, path_vars=path_vars)
 
     def add(self, serviceId):
-        '''create custom domains'''
+        '''create custom domains
+
+        :param str serviceId: Service ID
+        :return object: Returns requests object
+        '''
         path = self.config.API_ENDPOINTS['custom_domains']['root']
         path_vars = [serviceId]
         data = {}
@@ -37,13 +51,23 @@ class CustomDomains(BaseResource):
         )
 
     def delete(self, serviceId, customDomainIdOrName):
-        '''delete custom domains'''
+        '''delete custom domains
+
+        :param str serviceId: Service ID
+        :param str customDomainIdOrName: Domain ID or name
+        :return object: Returns requests object
+        '''
         path = self.config.API_ENDPOINTS['custom_domains']['name']
         path_vars = [serviceId, customDomainIdOrName]
         return self.make_request('delete', path, path_vars=path_vars)
 
     def verify(self, serviceId, customDomainIdOrName):
-        '''get custom gomains verify data'''
+        '''get custom gomains verify data
+
+        :param str serviceId: Service ID
+        :param str customDomainIdOrName: Domain ID or name
+        :return object: Returns requests object
+        '''
         path = self.config.API_ENDPOINTS['custom_domains']['verify']
         path_vars = [serviceId, customDomainIdOrName]
         return self.make_request('post', path, path_vars=path_vars)

@@ -11,7 +11,10 @@ class BaseResource:
     '''base resource'''
 
     def __init__(self, api_key):
-        '''init'''
+        '''init
+
+        :param str api_key: Render API key
+        '''
         self.api_key = api_key
 
         if not self.api_key:
@@ -21,11 +24,21 @@ class BaseResource:
         self.config = Config
 
     def __create_api_url(self, path):
-        '''create URL for call'''
+        '''create URL for call
+
+        :param str path: Path to format for
+        '''
         return '{}{}'.format(Config.API_BASE_URL, path)
 
     def make_request(self, method, path_data, path_vars=[], request_json=None):
-        '''make request on resource'''
+        '''make request on resource
+
+        :param str method: Method to use
+        :param str path_data: Path data to format
+        :param list path_vars: Path vars to update
+        :param dict request_json: Request json data
+        :return object: Returns requests object
+        '''
         path = self.__create_api_url(path_data.format(*path_vars))
         logging.debug("render.com PATH {}".format(path))
         return self.request.make_request(

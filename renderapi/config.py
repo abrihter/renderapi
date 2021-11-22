@@ -3,6 +3,7 @@ config
 '''
 
 class Config:
+    '''configuration class'''
 
     API_BASE_URL = 'https://api.render.com/v1'
 

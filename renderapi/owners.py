@@ -10,7 +10,11 @@ class Owners(BaseResource):
     '''owners resource'''
 
     def get(self, ownerId=None):
-        '''get owners data'''
+        '''get owners data
+
+        :param str ownerId: Owner ID
+        :return object: Returns requests object
+        '''
         path_vars = []
         path = self.config.API_ENDPOINTS['owners']['root']
         if ownerId:
