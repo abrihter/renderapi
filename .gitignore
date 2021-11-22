@@ -1,1 +1,6 @@
 __pycache__/
+build/
+dist/
+renderapi.egg-info/
+
+.bojan_env
