@@ -1,12 +1,11 @@
-# renderapi
-render.com API wrapper
+# render.com API wrapper
 
 ## Documentation
 [render.com API documentation](https://apidocs.preview.render.com/)
 
 ___ 
 ## Install 
-```pip install duxwrap``` 
+```pip install renderapi``` 
 ___
 
 ### How to use
