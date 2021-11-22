@@ -32,7 +32,7 @@ class Jobs(BaseResource):
         path = self.config.API_ENDPOINTS['jobs']['root']
         path_vars = [serviceId]
         data = {}
-        return self.request.make_request(
+        return self.make_request(
             'post',
             path,
             path_vars=path_vars,

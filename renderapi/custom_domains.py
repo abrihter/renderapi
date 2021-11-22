@@ -34,7 +34,7 @@ class CustomDomains(BaseResource):
         path_vars = [serviceId, customDomainIdOrName]
         return self.make_request('get', path, path_vars=path_vars)
 
-    def add(self, serviceId):
+    def add(self, serviceId, domain_name=''):
         '''create custom domains
 
         :param str serviceId: Service ID
@@ -42,8 +42,10 @@ class CustomDomains(BaseResource):
         '''
         path = self.config.API_ENDPOINTS['custom_domains']['root']
         path_vars = [serviceId]
-        data = {}
-        return self.request.make_request(
+        data = {
+            "name": domain_name
+        }
+        return self.make_request(
             'post',
             path,
             path_vars=path_vars,
