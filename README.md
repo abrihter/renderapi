@@ -1,5 +1,4 @@
-# renderapi
-render.com API wrapper
+# render.com API wrapper
 
 ## Documentation
 [render.com API documentation](https://apidocs.preview.render.com/)
