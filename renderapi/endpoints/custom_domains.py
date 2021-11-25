@@ -31,17 +31,6 @@ class CustomDomains(BaseResource):
             cursor=cursor,
         )
 
-    def get_domain(self, serviceId, customDomainIdOrName):
-        '''get particular custom domain data
-
-        :param str serviceId: Service ID
-        :param str customDomainIdOrName: Domain ID or name
-        :return object: Returns requests object
-        '''
-        path = self.config.API_ENDPOINTS['custom_domains']['name']
-        path_vars = [serviceId, customDomainIdOrName]
-        return self.make_request('get', path, path_vars=path_vars)
-
     def add(self, serviceId, domain_name=''):
         '''create custom domains
 
