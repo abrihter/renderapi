@@ -26,7 +26,7 @@ class RenderApi:
         self.api_key = api_key
 
         if not self.api_key:
-            logging.debug('API key not present []'.format(self.api_key))
+            logging.debug('API key not present [{}]'.format(self.api_key))
             raise InvalidKeyException('Empty key provided')
 
         self.owners = Owners(self.api_key)
