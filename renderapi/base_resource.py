@@ -32,7 +32,7 @@ class BaseResource:
 
     def make_request(
         self, method, path_data, path_vars=[], request_json=None, limit=20,
-            cursor=None):
+            cursor=None, params={}):
         '''make request on resource
 
         :param str method: Method to use
@@ -41,14 +41,14 @@ class BaseResource:
         :param dict request_json: Request json data
         :param int limit: Return limit
         :param str cursor: Cursor for serarch (next)
+        :param dict params: Params
         :return object: Returns requests object
         '''
-        params = None
         if limit != 20 or cursor != None:
-            params = {
+            params.update({
                 "limit": limit,
                 "cursor": cursor,
-            }
+            })
         path = self.__create_api_url(path_data.format(*path_vars))
         logging.debug("render.com PATH {}".format(path))
         return self.request.make_request(
