@@ -1,6 +1,6 @@
 Change Log
 
-[1.1.0] - yyyy-mm-dd
+[1.1.0] - 2021-11-25
 
 Breaking Changes
 - changed `custom_domain` to `domains` property
