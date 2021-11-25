@@ -6,5 +6,9 @@ Breaking Changes
 - changed `custom_domain` to `domains` property
 
 Added
+- pagination
+- added deploys endpoint
+
 Changed
+
 Fixed
