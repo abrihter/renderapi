@@ -1,0 +1,10 @@
+Change Log
+
+[1.1] - yyyy-mm-dd
+
+Breaking Changes
+- changed `custom_domain` to `domains` property
+
+Added
+Changed
+Fixed
