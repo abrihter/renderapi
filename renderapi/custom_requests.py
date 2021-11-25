@@ -26,12 +26,21 @@ class Request:
         :return object: Returns requests object
         '''
         s = requests.Session()
-        s.headers.update({'Authorization': 'Bearer {}'.format(self.api_key)})
+        s.headers.update(
+            {
+                'Authorization': 'Bearer {}'.format(self.api_key),
+                'Accept': 'application/json',
+            }
+        )
         data = None
         if method == 'get':
             data = s.get(path, params=params)
         elif method == 'post':
             data = s.post(path, json=request_json, params=params)
+        elif method == 'put':
+            data = s.put(path, json=request_json)
+        elif method == 'patch':
+            data = s.patch(path, json=request_json)
         elif method == 'delete':
             data = s.delete(path)
         logging.debug(data.content)
