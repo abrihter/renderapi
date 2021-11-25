@@ -2,9 +2,6 @@ Change Log
 
 [1.1.0] - 2021-11-25
 
-Breaking Changes
-- changed `custom_domain` to `domains` property
-
 Added
 - pagination
 - added deploys endpoint
