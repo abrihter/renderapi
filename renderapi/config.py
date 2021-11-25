@@ -10,6 +10,14 @@ class Config:
     API_ENDPOINTS = {
         "owners": {
             'root': '/owners',
+            'single': '/owners/{}',
+        },
+        "services": {
+            "root": "/services",
+        },
+        "deploys": {
+            "root": "/services/{}/deploys",
+            "single": "/services/{}/deploys/{}",
         },
         "custom_domains": {
             "root": "/services/{}/custom-domains",
