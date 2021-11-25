@@ -1,8 +1,10 @@
 # render.com API wrapper
 
 ## Documentation
-[render.com API documentation](https://apidocs.preview.render.com/)
+[render.com API documentation](https://render-api.readme.io/reference/introduction)
 
+## Coverage
+Aiming for full coverage. Currently we should support full functionality of render.com API
 ___
 ## Install
 ```pip install renderapi```
@@ -26,6 +28,16 @@ print(data.json())
 
 #get owners
 data = ra.owners.get({ownerId})
+print(data)
+print(data.json())
+
+#get services
+data = ra.services.get()
+print(data)
+print(data.json())
+
+#get deploys
+data = ra.deploys.get({serviceId})
 print(data)
 print(data.json())
 
