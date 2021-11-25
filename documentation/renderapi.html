@@ -46,7 +46,7 @@
 <p>base resource</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="renderapi.base_resource.BaseResource.make_request">
-<span class="sig-name descname"><span class="pre">make_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/base_resource.html#BaseResource.make_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.base_resource.BaseResource.make_request" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">make_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/base_resource.html#BaseResource.make_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.base_resource.BaseResource.make_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>make request on resource</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -55,6 +55,9 @@
 <li><p><strong>path_data</strong> (<em>str</em>) – Path data to format</p></li>
 <li><p><strong>path_vars</strong> (<em>list</em>) – Path vars to update</p></li>
 <li><p><strong>request_json</strong> (<em>dict</em>) – Request json data</p></li>
+<li><p><strong>limit</strong> (<em>int</em>) – Return limit</p></li>
+<li><p><strong>cursor</strong> (<em>str</em>) – Cursor for serarch (next)</p></li>
+<li><p><strong>params</strong> (<em>dict</em>) – Params</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return object</dt>
@@ -81,107 +84,14 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="renderapi.config.Config.API_ENDPOINTS">
-<span class="sig-name descname"><span class="pre">API_ENDPOINTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'custom_domains':</span> <span class="pre">{'name':</span> <span class="pre">'/services/{}/custom-domains/{}',</span> <span class="pre">'root':</span> <span class="pre">'/services/{}/custom-domains',</span> <span class="pre">'verify':</span> <span class="pre">'/services/{}/custom-domains/{}/verify'},</span> <span class="pre">'jobs':</span> <span class="pre">{'root':</span> <span class="pre">'/services/{}/jobs',</span> <span class="pre">'single':</span> <span class="pre">'/services/{}/jobs/{}'},</span> <span class="pre">'owners':</span> <span class="pre">{'root':</span> <span class="pre">'/owners'}}</span></em><a class="headerlink" href="#renderapi.config.Config.API_ENDPOINTS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">API_ENDPOINTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'custom_domains':</span> <span class="pre">{'name':</span> <span class="pre">'/services/{}/custom-domains/{}',</span> <span class="pre">'root':</span> <span class="pre">'/services/{}/custom-domains',</span> <span class="pre">'verify':</span> <span class="pre">'/services/{}/custom-domains/{}/verify'},</span> <span class="pre">'deploys':</span> <span class="pre">{'root':</span> <span class="pre">'/services/{}/deploys',</span> <span class="pre">'single':</span> <span class="pre">'/services/{}/deploys/{}'},</span> <span class="pre">'jobs':</span> <span class="pre">{'root':</span> <span class="pre">'/services/{}/jobs',</span> <span class="pre">'single':</span> <span class="pre">'/services/{}/jobs/{}'},</span> <span class="pre">'owners':</span> <span class="pre">{'root':</span> <span class="pre">'/owners',</span> <span class="pre">'single':</span> <span class="pre">'/owners/{}'},</span> <span class="pre">'services':</span> <span class="pre">{'envvars':</span> <span class="pre">'/services/{}/env-vars',</span> <span class="pre">'headers':</span> <span class="pre">'/services/{}/headers',</span> <span class="pre">'resume':</span> <span class="pre">'/services/{}/resume',</span> <span class="pre">'root':</span> <span class="pre">'/services',</span> <span class="pre">'routes':</span> <span class="pre">'/services/{}/routes',</span> <span class="pre">'scale':</span> <span class="pre">'/services/{}/scale',</span> <span class="pre">'single':</span> <span class="pre">'/services/{}',</span> <span class="pre">'suspend':</span> <span class="pre">'/services/{}/suspend'}}</span></em><a class="headerlink" href="#renderapi.config.Config.API_ENDPOINTS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
-<section id="module-renderapi.custom_domains">
-<span id="renderapi-custom-domains-module"></span><h2>renderapi.custom_domains module<a class="headerlink" href="#module-renderapi.custom_domains" title="Permalink to this headline">¶</a></h2>
-<p>custom domains resource</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="renderapi.custom_domains.CustomDomains">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renderapi.custom_domains.</span></span><span class="sig-name descname"><span class="pre">CustomDomains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/custom_domains.html#CustomDomains"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.custom_domains.CustomDomains" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#renderapi.base_resource.BaseResource" title="renderapi.base_resource.BaseResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">renderapi.base_resource.BaseResource</span></code></a></p>
-<p>custom domains resource</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="renderapi.custom_domains.CustomDomains.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serviceId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/custom_domains.html#CustomDomains.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.custom_domains.CustomDomains.add" title="Permalink to this definition">¶</a></dt>
-<dd><p>create custom domains</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>serviceId</strong> (<em>str</em>) – Service ID</p></li>
-<li><p><strong>domain_name</strong> (<em>str</em>) – Domanin name to create</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return object</dt>
-<dd class="field-even"><p>Returns requests object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="renderapi.custom_domains.CustomDomains.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serviceId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customDomainIdOrName</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/custom_domains.html#CustomDomains.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.custom_domains.CustomDomains.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>delete custom domains</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>serviceId</strong> (<em>str</em>) – Service ID</p></li>
-<li><p><strong>customDomainIdOrName</strong> (<em>str</em>) – Domain ID or name</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return object</dt>
-<dd class="field-even"><p>Returns requests object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="renderapi.custom_domains.CustomDomains.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serviceId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customDomainIdOrName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/custom_domains.html#CustomDomains.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.custom_domains.CustomDomains.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>get custom domains data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>serviceId</strong> (<em>str</em>) – Service ID</p></li>
-<li><p><strong>customDomainIdOrName</strong> (<em>str</em>) – Domain ID or name</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return object</dt>
-<dd class="field-even"><p>Returns requests object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="renderapi.custom_domains.CustomDomains.get_domain">
-<span class="sig-name descname"><span class="pre">get_domain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serviceId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customDomainIdOrName</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/custom_domains.html#CustomDomains.get_domain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.custom_domains.CustomDomains.get_domain" title="Permalink to this definition">¶</a></dt>
-<dd><p>get particular custom domain data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>serviceId</strong> (<em>str</em>) – Service ID</p></li>
-<li><p><strong>customDomainIdOrName</strong> (<em>str</em>) – Domain ID or name</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return object</dt>
-<dd class="field-even"><p>Returns requests object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="renderapi.custom_domains.CustomDomains.verify">
-<span class="sig-name descname"><span class="pre">verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serviceId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customDomainIdOrName</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/custom_domains.html#CustomDomains.verify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.custom_domains.CustomDomains.verify" title="Permalink to this definition">¶</a></dt>
-<dd><p>get custom gomains verify data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>serviceId</strong> (<em>str</em>) – Service ID</p></li>
-<li><p><strong>customDomainIdOrName</strong> (<em>str</em>) – Domain ID or name</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return object</dt>
-<dd class="field-even"><p>Returns requests object</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="renderapi-custom-domains-module">
+<h2>renderapi.custom_domains module<a class="headerlink" href="#renderapi-custom-domains-module" title="Permalink to this headline">¶</a></h2>
 </section>
 <section id="module-renderapi.custom_requests">
 <span id="renderapi-custom-requests-module"></span><h2>renderapi.custom_requests module<a class="headerlink" href="#module-renderapi.custom_requests" title="Permalink to this headline">¶</a></h2>
@@ -193,7 +103,7 @@
 <p>request class</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="renderapi.custom_requests.Request.make_request">
-<span class="sig-name descname"><span class="pre">make_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/custom_requests.html#Request.make_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.custom_requests.Request.make_request" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">make_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/custom_requests.html#Request.make_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.custom_requests.Request.make_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>make request</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -201,6 +111,7 @@
 <li><p><strong>method</strong> (<em>str</em>) – Method to use</p></li>
 <li><p><strong>path</strong> (<em>str</em>) – Endpoint path</p></li>
 <li><p><strong>request_json</strong> (<em>dict</em>) – Request json data</p></li>
+<li><p><strong>params</strong> (<em>dict</em>) – URL params</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return object</dt>
@@ -222,73 +133,19 @@
 <p>invalid key exception</p>
 </dd></dl>
 
-</section>
-<section id="module-renderapi.jobs">
-<span id="renderapi-jobs-module"></span><h2>renderapi.jobs module<a class="headerlink" href="#module-renderapi.jobs" title="Permalink to this headline">¶</a></h2>
-<p>custom domains resource</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="renderapi.jobs.Jobs">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renderapi.jobs.</span></span><span class="sig-name descname"><span class="pre">Jobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/jobs.html#Jobs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.jobs.Jobs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#renderapi.base_resource.BaseResource" title="renderapi.base_resource.BaseResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">renderapi.base_resource.BaseResource</span></code></a></p>
-<p>jobs resource</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="renderapi.jobs.Jobs.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serviceId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/jobs.html#Jobs.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.jobs.Jobs.add" title="Permalink to this definition">¶</a></dt>
-<dd><p>create job</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>serviceId</strong> (<em>str</em>) – Service ID</p>
-</dd>
-<dt class="field-even">Return object</dt>
-<dd class="field-even"><p>Returns requests object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="renderapi.jobs.Jobs.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serviceId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jobId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/jobs.html#Jobs.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.jobs.Jobs.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>get jobs data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>serviceId</strong> (<em>str</em>) – Service ID</p></li>
-<li><p><strong>jobId</strong> (<em>str</em>) – Job ID</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return object</dt>
-<dd class="field-even"><p>Returns requests object</p>
-</dd>
-</dl>
-</dd></dl>
-
+<dl class="py exception">
+<dt class="sig sig-object py" id="renderapi.exceptions.ServiceTypeException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renderapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">ServiceTypeException</span></span><a class="reference internal" href="_modules/renderapi/exceptions.html#ServiceTypeException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.exceptions.ServiceTypeException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>invalid service type exception</p>
 </dd></dl>
 
 </section>
-<section id="module-renderapi.owners">
-<span id="renderapi-owners-module"></span><h2>renderapi.owners module<a class="headerlink" href="#module-renderapi.owners" title="Permalink to this headline">¶</a></h2>
-<p>owners resource</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="renderapi.owners.Owners">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">renderapi.owners.</span></span><span class="sig-name descname"><span class="pre">Owners</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/owners.html#Owners"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.owners.Owners" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#renderapi.base_resource.BaseResource" title="renderapi.base_resource.BaseResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">renderapi.base_resource.BaseResource</span></code></a></p>
-<p>owners resource</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="renderapi.owners.Owners.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ownerId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/renderapi/owners.html#Owners.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#renderapi.owners.Owners.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>get owners data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ownerId</strong> (<em>str</em>) – Owner ID</p>
-</dd>
-<dt class="field-even">Return object</dt>
-<dd class="field-even"><p>Returns requests object</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="renderapi-jobs-module">
+<h2>renderapi.jobs module<a class="headerlink" href="#renderapi-jobs-module" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="renderapi-owners-module">
+<h2>renderapi.owners module<a class="headerlink" href="#renderapi-owners-module" title="Permalink to this headline">¶</a></h2>
 </section>
 <section id="module-renderapi.renderapi">
 <span id="renderapi-renderapi-module"></span><h2>renderapi.renderapi module<a class="headerlink" href="#module-renderapi.renderapi" title="Permalink to this headline">¶</a></h2>

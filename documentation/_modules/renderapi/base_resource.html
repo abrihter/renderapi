@@ -63,21 +63,32 @@
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Config</span><span class="o">.</span><span class="n">API_BASE_URL</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BaseResource.make_request"><a class="viewcode-back" href="../../renderapi.html#renderapi.base_resource.BaseResource.make_request">[docs]</a>    <span class="k">def</span> <span class="nf">make_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">path_data</span><span class="p">,</span> <span class="n">path_vars</span><span class="o">=</span><span class="p">[],</span> <span class="n">request_json</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseResource.make_request"><a class="viewcode-back" href="../../renderapi.html#renderapi.base_resource.BaseResource.make_request">[docs]</a>    <span class="k">def</span> <span class="nf">make_request</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">path_data</span><span class="p">,</span> <span class="n">path_vars</span><span class="o">=</span><span class="p">[],</span> <span class="n">request_json</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+            <span class="n">cursor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{}):</span>
         <span class="sd">&#39;&#39;&#39;make request on resource</span>
 
 <span class="sd">        :param str method: Method to use</span>
 <span class="sd">        :param str path_data: Path data to format</span>
 <span class="sd">        :param list path_vars: Path vars to update</span>
 <span class="sd">        :param dict request_json: Request json data</span>
+<span class="sd">        :param int limit: Return limit</span>
+<span class="sd">        :param str cursor: Cursor for serarch (next)</span>
+<span class="sd">        :param dict params: Params</span>
 <span class="sd">        :return object: Returns requests object</span>
 <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">limit</span> <span class="o">!=</span> <span class="mi">20</span> <span class="ow">or</span> <span class="n">cursor</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+                <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">,</span>
+                <span class="s2">&quot;cursor&quot;</span><span class="p">:</span> <span class="n">cursor</span><span class="p">,</span>
+            <span class="p">})</span>
         <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__create_api_url</span><span class="p">(</span><span class="n">path_data</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">path_vars</span><span class="p">))</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;render.com PATH </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span>
             <span class="n">method</span><span class="p">,</span>
             <span class="n">path</span><span class="p">,</span>
-            <span class="n">request_json</span><span class="o">=</span><span class="n">request_json</span>
+            <span class="n">request_json</span><span class="o">=</span><span class="n">request_json</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
         <span class="p">)</span></div></div>
 </pre></div>
 

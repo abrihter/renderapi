@@ -37,16 +37,18 @@
 
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Bojan&quot;</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;MIT&quot;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1&quot;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;1.1&quot;</span>
 <span class="n">__maintainer__</span> <span class="o">=</span> <span class="s2">&quot;Bojan&quot;</span>
 <span class="n">__status__</span> <span class="o">=</span> <span class="s2">&quot;Production&quot;</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="kn">from</span> <span class="nn">renderapi.exceptions</span> <span class="kn">import</span> <span class="n">InvalidKeyException</span>
-<span class="kn">from</span> <span class="nn">renderapi.owners</span> <span class="kn">import</span> <span class="n">Owners</span>
-<span class="kn">from</span> <span class="nn">renderapi.custom_domains</span> <span class="kn">import</span> <span class="n">CustomDomains</span>
-<span class="kn">from</span> <span class="nn">renderapi.jobs</span> <span class="kn">import</span> <span class="n">Jobs</span>
+<span class="kn">from</span> <span class="nn">renderapi.endpoints.owners</span> <span class="kn">import</span> <span class="n">Owners</span>
+<span class="kn">from</span> <span class="nn">renderapi.endpoints.services</span> <span class="kn">import</span> <span class="n">Services</span>
+<span class="kn">from</span> <span class="nn">renderapi.endpoints.deploys</span> <span class="kn">import</span> <span class="n">Deploys</span>
+<span class="kn">from</span> <span class="nn">renderapi.endpoints.custom_domains</span> <span class="kn">import</span> <span class="n">CustomDomains</span>
+<span class="kn">from</span> <span class="nn">renderapi.endpoints.jobs</span> <span class="kn">import</span> <span class="n">Jobs</span>
 
 <div class="viewcode-block" id="RenderApi"><a class="viewcode-back" href="../../renderapi.html#renderapi.renderapi.RenderApi">[docs]</a><span class="k">class</span> <span class="nc">RenderApi</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39;render API main class&#39;&#39;&#39;</span>
@@ -57,12 +59,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">:</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;API key not present []&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">))</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;API key not present [</span><span class="si">{}</span><span class="s1">]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">))</span>
             <span class="k">raise</span> <span class="n">InvalidKeyException</span><span class="p">(</span><span class="s1">&#39;Empty key provided&#39;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">owners</span> <span class="o">=</span> <span class="n">Owners</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deploys</span> <span class="o">=</span> <span class="n">Deploys</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">custom_domains</span> <span class="o">=</span> <span class="n">CustomDomains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span> <span class="o">=</span> <span class="n">Jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span> <span class="o">=</span> <span class="n">Jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">services</span> <span class="o">=</span> <span class="n">Services</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">)</span></div>
 </pre></div>
 
           </div>
