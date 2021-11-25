@@ -43,10 +43,12 @@ class BaseResource:
         :param str cursor: Cursor for serarch (next)
         :return object: Returns requests object
         '''
-        params = {
-            "limit": limit,
-            "cursor": cursor,
-        }
+        params = None
+        if limit != 20 or cursor != None:
+            params = {
+                "limit": limit,
+                "cursor": cursor,
+            }
         path = self.__create_api_url(path_data.format(*path_vars))
         logging.debug("render.com PATH {}".format(path))
         return self.request.make_request(
