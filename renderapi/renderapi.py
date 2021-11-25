@@ -4,7 +4,7 @@ render.com API wrapper
 
 __author__ = "Bojan"
 __license__ = "MIT"
-__version__ = "0.1"
+__version__ = "1.1"
 __maintainer__ = "Bojan"
 __status__ = "Production"
 
