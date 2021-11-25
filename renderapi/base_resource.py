@@ -30,19 +30,28 @@ class BaseResource:
         '''
         return '{}{}'.format(Config.API_BASE_URL, path)
 
-    def make_request(self, method, path_data, path_vars=[], request_json=None):
+    def make_request(
+        self, method, path_data, path_vars=[], request_json=None, limit=20,
+            cursor=None):
         '''make request on resource
 
         :param str method: Method to use
         :param str path_data: Path data to format
         :param list path_vars: Path vars to update
         :param dict request_json: Request json data
+        :param int limit: Return limit
+        :param str cursor: Cursor for serarch (next)
         :return object: Returns requests object
         '''
+        params = {
+            "limit": limit,
+            "cursor": cursor,
+        }
         path = self.__create_api_url(path_data.format(*path_vars))
         logging.debug("render.com PATH {}".format(path))
         return self.request.make_request(
             method,
             path,
-            request_json=request_json
+            request_json=request_json,
+            params=params,
         )
