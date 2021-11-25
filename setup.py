@@ -15,7 +15,7 @@ setuptools.setup(
     author = 'bojan',
     author_email = '',
     license='MIT',
-    url = 'https://github.com/abrihter/renderapi/releases',
+    url = 'https://github.com/abrihter/renderapi',
     download_url = 'https://github.com/abrihter/renderapi/archive/v_110.tar.gz',
     keywords = ['RENDER.COM', 'API', 'WRAPPER'],
     install_requires=[
