@@ -9,11 +9,13 @@ from renderapi.base_resource import BaseResource
 class CustomDomains(BaseResource):
     '''custom domains resource'''
 
-    def get(self, serviceId, customDomainIdOrName=None):
+    def get(self, serviceId, customDomainIdOrName=None, limit=20, cursor=None):
         '''get custom domains data
 
         :param str serviceId: Service ID
         :param str customDomainIdOrName: Domain ID or name
+        :param int limit: Return limit
+        :param str cursor: Cursor for serarch (next)
         :return object: Returns requests object
         '''
         path_vars = [serviceId]
@@ -21,7 +23,13 @@ class CustomDomains(BaseResource):
         if customDomainIdOrName:
             path = self.config.API_ENDPOINTS['custom_domains']['name']
             path_vars.append(customDomainIdOrName)
-        return self.make_request('get', path, path_vars=path_vars)
+        return self.make_request(
+            'get',
+            path,
+            path_vars=path_vars,
+            limit=limit,
+            cursor=cursor,
+        )
 
     def get_domain(self, serviceId, customDomainIdOrName):
         '''get particular custom domain data

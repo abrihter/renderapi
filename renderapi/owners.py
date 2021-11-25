@@ -9,10 +9,12 @@ from renderapi.base_resource import BaseResource
 class Owners(BaseResource):
     '''owners resource'''
 
-    def get(self, ownerId=None):
+    def get(self, ownerId=None, limit=20, cursor=None):
         '''get owners data
 
         :param str ownerId: Owner ID
+        :param int limit: Return limit
+        :param str cursor: Cursor for serarch (next)
         :return object: Returns requests object
         '''
         path_vars = []
@@ -20,4 +22,10 @@ class Owners(BaseResource):
         if ownerId:
             path = self.config.API_ENDPOINTS['owners']['root']
             path_vars = [ownerId]
-        return self.make_request('get', path, path_vars=path_vars)
+        return self.make_request(
+            'get',
+            path,
+            path_vars=path_vars,
+            limit=limit,
+            cursor=cursor
+        )

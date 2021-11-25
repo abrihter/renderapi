@@ -9,11 +9,13 @@ from renderapi.base_resource import BaseResource
 class Jobs(BaseResource):
     '''jobs resource'''
 
-    def get(self, serviceId, jobId=None):
+    def get(self, serviceId, jobId=None, limit=20, cursor=None):
         '''get jobs data
 
         :param str serviceId: Service ID
         :param str jobId: Job ID
+        :param int limit: Return limit
+        :param str cursor: Cursor for serarch (next)
         :return object: Returns requests object
         '''
         path_vars = [serviceId]
@@ -21,7 +23,13 @@ class Jobs(BaseResource):
         if jobId:
             path = self.config.API_ENDPOINTS['jobs']['single']
             path_vars.append(jobId)
-        return self.make_request('get', path, path_vars=path_vars)
+        return self.make_request(
+            'get',
+            path,
+            path_vars=path_vars,
+            limit=limit,
+            cusror=cursor,
+        )
 
     def add(self, serviceId):
         '''create job
