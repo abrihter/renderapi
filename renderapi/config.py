@@ -14,6 +14,13 @@ class Config:
         },
         "services": {
             "root": "/services",
+            "single": "/services/{}",
+            "envvars": "/services/{}/env-vars",
+            "headers": "/services/{}/headers",
+            "routes": "/services/{}/routes",
+            "suspend": "/services/{}/suspend",
+            "resume": "/services/{}/resume",
+            "scale": "/services/{}/scale",
         },
         "deploys": {
             "root": "/services/{}/deploys",
