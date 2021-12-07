@@ -2,8 +2,6 @@
 owners resource
 '''
 
-import logging
-
 from renderapi.base_resource import BaseResource
 
 class Owners(BaseResource):
